@@ -1,0 +1,12 @@
+genIntersectedCaps: Intersected caps
+settings: Graphic settings
+progressiveNavState: With progressive navigation impact
+capsColor: Caps color
+offState: 'Off'
+genCaps: Generate caps
+name: Main mode
+progressive: Progressive render
+gtao: Ambient occlusion
+antialiasing: Antialiasing
+alwaysState: Always
+navState: With navigation impact

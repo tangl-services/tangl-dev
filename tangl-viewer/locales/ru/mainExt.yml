@@ -1,0 +1,12 @@
+genIntersectedCaps: Пересекающиеся торцы
+settings: Настройки графики
+progressiveNavState: С учётом прогрессивной навигации
+capsColor: Цвет торцов
+offState: Выключено
+genCaps: Генерация торцов
+name: Основной режим
+progressive: Прогрессивный рендер
+gtao: Затемнение в углах
+antialiasing: Сглаживание рёбер
+alwaysState: Всегда
+navState: С учётом навигации
