@@ -5,11 +5,13 @@ id = aa66107e-4586-4263-aca5-5c0d878bf450
 
 [relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"9726996-3ad47b10-e820-4c8c-8ab7-2ebd510f5c52","path":"Tangl Auth API.json","metaData":{}}
 
 [relations.collections.metaData]
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
+files[] = {"path":"TA-swagger.json","metaData":{}}
 
 [relations.apiDefinition.metaData]
 type = openapi:3
