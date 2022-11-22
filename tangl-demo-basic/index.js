@@ -17,14 +17,14 @@ renderManager.extMan.selectControllerExtension("orbit")
 await fetchToken()
 sceneManager.setToken(tanglToken)
 
-// const companies = await fetchCompanies()
-// const companyid = companies[0].id
-//
-// const models = await fetchModels(companyid)
-// const modelid = models[0].id
+const companies = await fetchCompanies()
+const companyId = companies[0].id
+
+const models = await fetchModels(companyId)
+const modelId = models[0].id
 
 //load scene from bucket via bucket GUID and zoom camera after load process
 sceneManager
 	 .onAllLoaded(() => {
 		 renderManager.zoomCameraToSelection()
-	 }).load("52340e85-61af-45a9-63a5-3a077e4e4f99")
+	 }).load(modelId)

@@ -25,7 +25,7 @@ export async function fetchToken() {
 }
 
 export async function fetchCompanies() {
-	const response = await window.axios.get(TANGL_AUTH_SERVER + "/api/app/company", {},
+	const response = await window.axios.get(TANGL_AUTH_SERVER + "/api/app/company",
 		 {
 			 headers: {
 				 'Authorization': 'Bearer ' + tanglToken
@@ -42,9 +42,9 @@ export async function fetchCompanies() {
 export async function fetchModels(companyId) {
 	const response = await window.axios.get(TANGL_SERVER + "/api/app/metaModels",
 		 {
-			 companyId: companyId
-		 },
-		 {
+			 params: {
+				 CompanyId: companyId,
+			 },
 			 headers: {
 				 'Authorization': 'Bearer ' + tanglToken
 			 },
