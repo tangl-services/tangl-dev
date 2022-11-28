@@ -10,13 +10,15 @@
 
 ## Postman API pages
 
-- Public Workspace with APIs and demo environment - [https://www.postman.com/tangl-services](https://www.postman.com/tangl-services)
+- **Public Workspace with APIs and demo environment** - [https://www.postman.com/tangl-services](https://www.postman.com/tangl-services)
 - [**Tangl Auth Server**](https://documenter.getpostman.com/view/9726996/2s8YsnWFVH)
 - [**Tangl Server**](https://documenter.getpostman.com/view/9726996/2s8YsnWFVB)
 
-## Additional materials and libs
+## NPM resources
 
-- Tangl Viewer library on NPM - [https://www.npmjs.com/package/tangl-viewer](https://www.npmjs.com/package/tangl-viewer)
+- **Tangl i18n helper library for Vite** - [https://www.npmjs.com/package/tangl-i18next-vite](https://www.npmjs.com/package/tangl-i18next-vite)
+- **Tangl Viewer library** - [https://www.npmjs.com/package/tangl-viewer](https://www.npmjs.com/package/tangl-viewer)
+- **Tangl Viewer UI library for  Vue** - [https://www.npmjs.com/package/tangl-viewer-ui-vue](https://www.npmjs.com/package/tangl-viewer-ui-vue)
 
 ## Demo Account and Client requisites:
 
