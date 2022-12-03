@@ -1,32 +1,15 @@
 # Tangl Platform and Services resources for developers
 
-## Servers API Swagger pages
+New way of efficient work with BIM data for efficient buildings.
 
-- **Tangl Auth Server** - [https://auth.st.tangl.cloud/swagger](https://auth.st.tangl.cloud/swagger/index.html)
-- **Tangl Server** - [https://api.st.tangl.cloud/swagger](https://api.st.tangl.cloud/swagger/index.html)
-- **Tangl Value Server** - [https://api.value.st.tangl.cloud/swagger](https://api.value.st.tangl.cloud/swagger/index.html)
-- **Tangl Control Server** - [https://api.control.st.tangl.cloud/swagger](https://api.control.st.tangl.cloud/swagger/index.html)
-- **Tangl Cache Server** - [https://api.cache.st.tangl.cloud/swagger/index.html](https://api.cache.st.tangl.cloud/swagger/index.html)
+Tangl is a platform for exporting, loading and transforming BIM data. In other words – to manage it and make it useful for everyday practice in different business scenarios.
 
-## Postman API pages
+## Tangl Page
 
-- **Public Workspace with APIs and demo environment** - [https://www.postman.com/tangl-services](https://www.postman.com/tangl-services)
-- [**Tangl Auth Server**](https://documenter.getpostman.com/view/9726996/2s8YsnWFVH)
-- [**Tangl Server**](https://documenter.getpostman.com/view/9726996/2s8YsnWFVB)
+[**https://tangl.cloud/en**](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbnF6am52eVdDTDRiV1NUaFMyMU9xYWg1R29aUXxBQ3Jtc0tsNE9McmlFVnI0Mk1IY3lXdUhvYjczSFRZV0pUMWJjY1RHVVZNZDc2aHVGLTltVWJZYXFWZWV0YWNMejhVS3R1TWRtUF9fdnlCSlhCclZuUi10ZFFOb0lzeWRUSmpWdWt1SkJMbGdDN3RmeW1tTE5aWQ&q=https%3A%2F%2Ftangl.cloud%2Fen&v=WvqVy54grJI)
 
-## NPM resources
+## Help Center
 
-- **Tangl i18n helper library for Vite** - [https://www.npmjs.com/package/tangl-i18next-vite](https://www.npmjs.com/package/tangl-i18next-vite)
-- **Tangl Viewer library** - [https://www.npmjs.com/package/tangl-viewer](https://www.npmjs.com/package/tangl-viewer)
-- **Tangl Viewer UI library for  Vue** - [https://www.npmjs.com/package/tangl-viewer-ui-vue](https://www.npmjs.com/package/tangl-viewer-ui-vue)
+See all information for developers on
 
-## Demo Account and Client requisites:
-
-```
-client_id: "e35e3f8b-8197-5b4d-8249-3a077cfedc50", //Demo API client
-client_secret: "ff7eb513-db87-b66d-f743-3a077cfedc51", //Demo API client
-username: "devdemo@tangl.cloud", //Demo account
-password: "Devdemo1!", //Demo account
-```
-
-Demo account and demo API client provides access to Demo company with sample models.
+[**https://docs.st.tangl.cloud/api/tangl/tangl-api**](https://docs.st.tangl.cloud/api/tangl/tangl-api/)
