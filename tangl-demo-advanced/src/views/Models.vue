@@ -103,9 +103,8 @@ export default defineComponent({
 		const token = sToken ? sToken : oidcStore.state.oidcStore.access_token;
 
 		const compId = "178fda74-d35c-fec7-1d4a-3a077ce1cc24"; // Company id
-		const res = await axios.get(env.VITE_TANGL_SERVER + "/api/app/metaModels/", {
+		const res = await axios.get(env.VITE_TANGL_SERVER + "/api/app/metaModelsList/" + compId, {
 			responseType: "json",
-			params: {companyId: compId},
 			headers: {
 				Authorization: `Bearer ${token}`
 			},
