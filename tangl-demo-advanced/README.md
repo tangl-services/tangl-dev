@@ -10,7 +10,7 @@ The project also uses a complete setup that you can use as a basis for developin
 
 See demo application overview on Tangl help center:
 
-[**https://docs.st.tangl.cloud/api/tangl-viewer/tangl-viewer-howto/tangl-demo-advanced-overview.html**](https://docs.st.tangl.cloud/api/tangl-viewer/tangl-viewer-howto/tangl-demo-advanced-overview.html)
+[**https://help.tangl.cloud/api/tangl-viewer/tangl-viewer-howto/tangl-demo-advanced-overview.html**](https://help.tangl.cloud/api/tangl-viewer/tangl-viewer-howto/tangl-demo-advanced-overview.html)
 
 ## Screenshots
 

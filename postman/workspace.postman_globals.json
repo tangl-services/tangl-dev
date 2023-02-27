@@ -3,19 +3,19 @@
 	"values": [
 		{
 			"key": "tanglAuthServer",
-			"value": "https://auth.st.tangl.cloud",
+			"value": "https://auth.tangl.cloud",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "tanglServer",
-			"value": "https://api.st.tangl.cloud",
+			"value": "https://platform.tangl.cloud",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "tanglValueServer",
-			"value": "https://api.value.st.tangl.cloud",
+			"value": "https://value.tangl.cloud",
 			"type": "default",
 			"enabled": true
 		},
@@ -31,7 +31,7 @@
 		},
 		{
 			"key": "tanglCacheServer",
-			"value": "https://api.cache.st.tangl.cloud",
+			"value": "https://cache.tangl.cloud",
 			"type": "default",
 			"enabled": true
 		}

@@ -12,4 +12,4 @@ Tangl is a platform for exporting, loading and transforming BIM data. In other w
 
 See all information for developers on
 
-[**https://docs.st.tangl.cloud/api/tangl/tangl-api**](https://docs.st.tangl.cloud/api/tangl/tangl-api/)
+[**https://help.tangl.cloud/api/tangl/tangl-api**](https://help.tangl.cloud/api/tangl/tangl-api/)

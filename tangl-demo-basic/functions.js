@@ -1,5 +1,5 @@
-const TANGL_AUTH_SERVER = "https://auth.st.tangl.cloud"
-const TANGL_SERVER = "https://api.st.tangl.cloud"
+const TANGL_AUTH_SERVER = "https://auth.tangl.cloud"
+const TANGL_SERVER = "https://platform.tangl.cloud"
 export let tanglToken = undefined;
 
 export async function fetchToken() {

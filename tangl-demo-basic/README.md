@@ -8,4 +8,4 @@ Minimal browser-based application with an embedded Tangl viewer without any adva
 
 You can find a tutorial in which this application is created and supplemented with comments:
 
-[**Making a basic application with an embedded viewer in 5 steps**](https://docs.st.tangl.cloud/api/tangl-viewer/tangl-viewer-howto/making-app-basic/)
+[**Making a basic application with an embedded viewer in 5 steps**](https://help.tangl.cloud/api/tangl-viewer/tangl-viewer-howto/making-app-basic/)
