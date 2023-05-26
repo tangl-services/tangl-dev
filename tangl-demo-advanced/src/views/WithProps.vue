@@ -18,7 +18,7 @@ import {defineComponent} from "vue";
 import {
 	CoordinatesExtension,
 	CropExtension, FlyControllerExtension,
-	GeneralModeExtension, MeashureExtension, OrbitControllerExtension, SceneEvents,
+	GeneralModeExtension, MeasureExtension, OrbitControllerExtension, SceneEvents,
 	VisibilityExtension
 } from "tangl-viewer";
 import {DemoBasicExtension} from "../extensions/demo-basic";
@@ -50,7 +50,7 @@ export default defineComponent({
 		renderManager.extMan.addExtension(DemoModeExtension)
 		renderManager.extMan.addExtension(CropExtension)
 		renderManager.extMan.addExtension(VisibilityExtension)
-		renderManager.extMan.addExtension(MeashureExtension)
+		renderManager.extMan.addExtension(MeasureExtension)
 		renderManager.extMan.addExtension(CoordinatesExtension)
 
 		renderManager.extMan.selectControllerExtension("orbit")

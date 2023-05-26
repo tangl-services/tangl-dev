@@ -120,7 +120,7 @@ export class DemoModeExtension extends ModeExtensionBase {
 				colorAttr.needsUpdate = true;
 
 			},
-			(child: InstancedMesh, meshIdx: number, geomNum: number) => {
+			(child: InstancedMesh, meshIdx: number) => {
 				if (this.resArray[meshIdx] == undefined)
 					this.resArray[meshIdx] = new Array(child.geometry.getAttribute("color").count);
 				resArray = this.resArray[meshIdx];
