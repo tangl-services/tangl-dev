@@ -71,7 +71,8 @@ export default defineComponent({
 					style: 'cursor: pointer;',
 					onClick: (e) => {
 						if (e.ctrlKey) {
-							modelStore.selectedModels.push({id: row.id, name: row.name});
+							modelStore.selectedModels.push({id: row.versions[row.versions.length - 1].id, 
+								name: row.name, versions: row.versions});
 							e.target.parentElement.classList.add("active");
 						} else {
 							if (modelStore.selectedModels.length > 0) {
@@ -79,7 +80,8 @@ export default defineComponent({
 								activeEls.forEach(e => e.classList.remove('active'))
 							}
 							modelStore.selectedModels = [];
-							modelStore.selectedModels.push({id: row.id, name: row.name});
+							modelStore.selectedModels.push({id: row.versions[row.versions.length - 1].id, 
+								name: row.name, versions: row.versions});
 							e.target.parentElement.classList.add("active");
 						}
 
