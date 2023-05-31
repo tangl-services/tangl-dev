@@ -36,12 +36,22 @@ export default defineComponent({
 		...mapStores(modelStore)
 	},
 	async mounted() {
+		let ids: string[] = [];
+		if (typeof this.$route.query.ids === "string") ids = [this.$route.query.ids as string];
+		else ids = this.$route.query.ids as string[];
+
+		console.log("[Props View] Loading models(length)", ids, ids.length)
+
+		if (ids.length === 0) {
+			this.$router.push("/")
+		}
+
 		const token = oidcStore.state.oidcStore.access_token;
 		sceneManager.setToken(token);
 		metaManager.setToken(token);
 
 		renderManager?.init("viewer");
-		//renderManager.setBackgroundColor(0xcccccc);
+		renderManager.setBackgroundColor(0xffffff);
 
 		// Built-in extensions
 		renderManager.extMan.addExtension(OrbitControllerExtension)
@@ -61,19 +71,20 @@ export default defineComponent({
 		this.onSceneSelected = this.onSceneSelected.bind(this)
 		sceneManager.addEventListener(SceneEvents.Selected, this.onSceneSelected)
 
-		let id = this.getSelectedModelsIds(this.modelStore.selectedModels);
 		sceneManager
 				.onAllLoaded(() => {
 					renderManager?.zoomCameraToSelection();
 				})
-				.load(id)
+				.load((ids as string[]).join(";"))
 
-		metaManager.load(this.modelStore.selectedModels)
+		await metaManager.load(this.modelStore.getModelsByIds(ids))
 
 
 	},
 	unmounted() {
-		renderManager?.destroy()
+		renderManager?.destroy();
+		sceneManager?.clear();
+		metaManager?.destroy();
 	},
 	methods: {
 		onMetaSelected(e: { geomNums: number[], elNums: number[] }) {

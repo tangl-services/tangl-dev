@@ -25,7 +25,7 @@ import {
 
 import {renderManager, sceneManager, metaManager} from "../managers";
 import {DemoBasicExtension} from "../extensions/demo-basic";
-import {modelStore} from "../stores/model";
+import {modelStore, SelectedModel} from "../stores/model";
 import oidcStore from "../store";
 import {DemoModeExtension} from "../extensions/demo-mode";
 import {mapStores} from "pinia";
@@ -38,6 +38,18 @@ export default defineComponent({
 		...mapStores(modelStore)
 	},
 	async mounted() {
+		let ids: string[] = [];
+		if (typeof this.$route.query.ids === "string") ids = [this.$route.query.ids as string];
+		else ids = this.$route.query.ids as string[];
+
+		console.log("[Floating Props View] Loading models(length)", ids, ids.length)
+
+		if (ids.length === 0) {
+			this.$router.push("/")
+		}
+
+		if (this.modelStore.models.length === 0) await this.modelStore.fetchModels();
+
 		const token = oidcStore.state.oidcStore.access_token;
 		sceneManager.setToken(token);
 		metaManager.setToken(token);
@@ -62,17 +74,18 @@ export default defineComponent({
 		this.onSceneSelected = this.onSceneSelected.bind(this)
 		sceneManager.addEventListener(SceneEvents.Selected, this.onSceneSelected)
 
-		let id = this.getSelectedModelsIds(this.modelStore.selectedModels);
 		sceneManager
 				.onAllLoaded(() => {
 					renderManager?.zoomCameraToSelection();
 				})
-				.load(id)
+				.load((ids as string[]).join(";"))
 
-		metaManager.load(this.modelStore.selectedModels)
+		await metaManager.load(this.modelStore.getModelsByIds(ids))
 	},
 	unmounted() {
-		renderManager?.destroy()
+		renderManager?.destroy();
+		sceneManager?.clear();
+		metaManager?.destroy();
 	},
 	methods: {
 		onMetaSelected(e: { geomNums: number[], elNums: number[] }) {
@@ -82,20 +95,6 @@ export default defineComponent({
 			if (this.$refs.propsTree)
 				(this.$refs.propsTree as any).fetchPropsByNumbers(sceneManager.selElNums[0]);
 		},
-		getSelectedModelsIds(modelsIds: any[]) {
-			let id: string | string[] = "0491523c-3e44-f638-93aa-3a077e411e29"; // Default model
-			if (modelsIds && modelsIds.length > 0) {
-				if (modelsIds.length == 1)
-					id = modelsIds[0].id;
-				else {
-					let ids = [];
-					for (let i = 0; i < modelsIds.length; i++)
-						ids.push(modelsIds[i].id);
-					id = ids.join(";");
-				}
-			}
-			return id
-		}
 	},
 })
 </script>

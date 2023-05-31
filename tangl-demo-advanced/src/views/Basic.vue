@@ -5,7 +5,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {OrbitControllerExtension} from "tangl-viewer"
-import {renderManager, sceneManager} from "../managers"
+import {metaManager, renderManager, sceneManager} from "../managers"
 import {modelStore} from "../stores/model"
 import oidcStore from "../store";
 import {mapStores} from "pinia";
@@ -18,25 +18,36 @@ export default defineComponent({
 		...mapStores(modelStore)
 	},
 	async mounted() {
+		let ids: string[] = [];
+		if (typeof this.$route.query.ids === "string") ids = [this.$route.query.ids as string];
+		else ids = this.$route.query.ids as string[];
+
+		console.log("[Basic View] Loading models(length)", ids, ids.length)
+
+		if (ids.length === 0) {
+			this.$router.push("/")
+		}
+
 		renderManager?.init("viewer");
+		renderManager.setBackgroundColor(0xffffff);
+
 		renderManager.extMan.addExtension(OrbitControllerExtension)
 		renderManager.extMan.selectControllerExtension("orbit")
 
 		const token = oidcStore.state.oidcStore.access_token;
 		sceneManager.setToken(token);
 
-		let id = this.getSelectedModelsIds(this.modelStore.selectedModels);
-
 		sceneManager
 				.onAllLoaded(() => {
 					renderManager?.zoomCameraToSelection();
 				})
-				.load(id)
+				.load((ids as string[]).join(";"))
 
 
 	},
 	unmounted() {
-		renderManager?.destroy()
+		renderManager?.destroy();
+		sceneManager?.clear();
 	},
 	methods: {
 		getSelectedModelsIds(modelsIds: any[]) {
