@@ -49,6 +49,7 @@ export const modelStore = defineStore('model', {
                 let modelsRes = res.data as Model[];
                 modelsRes.forEach(model => {
                     let lastModelVersion = model.versions[model.versions.length - 1];
+                    model.id = lastModelVersion.id,
                     model.date = lastModelVersion.date
                     model.elementsCount = lastModelVersion.elementsCount
                     model.desc = lastModelVersion.desc
