@@ -21,7 +21,7 @@ const companies = await fetchCompanies()
 const companyId = companies[0].id
 
 const models = await fetchModels(companyId)
-const modelId = models[0].id
+const modelId = models[0].versions[0].id
 
 //load scene from bucket via bucket GUID and zoom camera after load process
 sceneManager
