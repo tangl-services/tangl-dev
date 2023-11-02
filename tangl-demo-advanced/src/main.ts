@@ -1,5 +1,4 @@
 //external styles
-import '@unocss/reset/tailwind.css'
 import 'uno.css'
 
 //libs
@@ -42,8 +41,10 @@ i18next.use(LanguageDetector).init({
 })
 
 import naive from "naive-ui";
+import PrimeVue from "primevue/config";
 
 app.use(naive);
+app.use(PrimeVue, {inputStyle: 'filled', unstyled: false});
 app.use(I18NextVue, {i18next});
 app.use(store);
 app.use(pinia);

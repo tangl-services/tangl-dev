@@ -1,6 +1,14 @@
-@import "./../../../node_modules/tangl-viewer-ui-vue/dist/style.css"
+@layer defaults, primevue
+
+@import '@unocss/reset/tailwind.css' layer(defaults)
+@import "primevue/resources/primevue.min.css"
+
+@import "./../../../node_modules/tangl-viewer-ui-vue/dist/style.css" layer(viewer)
+
+@import n-tree
+@import p-button
 
 html
-  font-size: 13px
+	font-size: 13px
 
   

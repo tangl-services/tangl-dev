@@ -1,5 +1,5 @@
 <template lang="pug">
-.flex.absolute.h-full.w-full.items-end.justify-center.overflow-hidden.tgv-night
+.flex.absolute.h-full.w-full.items-end.justify-center.overflow-hidden.tgv-night.night
 	#viewer.absolute.bg-red.w-full.h-full
 	tgv-extensions-ui
 	tgv-toolbar.absolute.tgv-bg-night.tgv-bg-blur
