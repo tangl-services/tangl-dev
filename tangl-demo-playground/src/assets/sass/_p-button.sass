@@ -1,0 +1,256 @@
+﻿//common button styles
+.p-button
+	text-transform: inherit
+	--at-apply: "border-transparent border-1 border-solid min-h-11 min-w-11 py-2 px-2 rounded-none bg-$tg-primary-400 items-center flex justify-center"
+
+	&.p-button-text
+		--at-apply: "bg-white"
+
+	*
+		--at-apply: "min-w-6 min-h-6"
+
+
+	.p-button-icon
+		--at-apply: "min-w-6 min-h-6 p-1"
+
+	&.p-button-frame-icon
+		--at-apply: "p-0!"
+
+		*
+			--at-apply: "min-w-8 min-h-8 w-8 h-8"
+
+	.text
+		--at-apply: "mx-2 lt-lg:hidden"
+
+
+	&:enabled
+		--at-apply: "hover:bg-$tg-primary-400-light"
+
+	@layer tangl-override
+		&.p-disabled:disabled
+			text-transform: inherit
+			--at-apply: "text-white! bg-$tg-gray-300! border-1 border-solid border-$tg-gray-300!"
+
+	//secondary
+	&.p-button-secondary
+		--at-apply: "bg-$tg-secondary-400"
+
+		&:enabled
+			--at-apply: "hover:bg-$tg-secondary-400-light"
+
+
+	//text mode
+	&.p-button-text, &.p-button-text.p-button-secondary
+
+		&:enabled
+			color: var(--tg-secondary-400)
+			--at-apply: "border-1 border-solid border-$tg-secondary-400 "
+
+			&:hover
+				@media (hover: hover)
+					color: var(--tg-secondary-400)
+					--at-apply: "border-black bg-$tg-gray-200"
+
+
+	&.p-0
+		padding: 0
+
+
+.counter
+	border-radius: 50%
+	--at-apply: 'text-white bg-$tg-gray-400 font-300'
+	padding-left: 0.5rem
+	padding-right: 0.5rem
+	text-align: center
+// ---------- night theme
+.night
+	.p-button
+
+		&.flat, &.tool, &.header, &.mini, &.menu
+			color: inherit
+			--at-apply: "hover:bg-$tg-secondary-400-light hover:text-white"
+
+			&.inverse
+				--at-apply: "text-black hover:bg-transparent hover:text-black"
+
+				> div
+					--at-apply: "text-black hover:text-black"
+
+		&.flat, &.mini, &.menu
+			@layer tangl-override
+				&:disabled
+					--at-apply: "text-$tg-secondary-400-light!"
+
+
+		&.mini:hover
+			@media (hover: hover)
+				--at-apply: "bg-transparent"
+
+		&.flat:hover, &.mini:hover
+			@media (hover: hover)
+				--at-apply: "color-white bg-transparent"
+				> div
+					--at-apply: "color-white"
+				&.inverse
+					--at-apply: "color-black bg-transparent"
+
+					> div
+						--at-apply: "color-black"
+
+		&.flat.active, &.tool.active, &.mini.active
+			color: var(--tg-primary-400)
+
+			&:hover
+				@media (hover: hover)
+					color: var(--tg-primary-400)
+					> div
+						color: var(--tg-primary-400)
+
+
+		&.menu
+			--at-apply: "gap-2 bg-transparent border-0 border-b-1 border-$tg-gray-500 w-full pl-4 pr-4 lg:pl-8"
+
+			&.drop-menu
+				--at-apply: "px-2"
+
+			.icon
+				--at-apply: "text-$tg-gray-450"
+
+			.label
+				--at-apply: "flex-grow text-start flex items-center leading-none"
+				line-height: 100%
+
+
+			.counter
+				border-width: 1.5px
+				--at-apply: "border-transparent px-2 mr-2 rounded-full text-center bg-$tg-gray-500"
+
+			&.router-link-active, &.router-exact-active
+				--at-apply: "cursor-default hover:bg-$tg-secondary-300 bg-$tg-secondary-300"
+
+				.icon
+					--at-apply: "text-$tg-primary-400"
+
+				.counter
+					--at-apply: "border-$tg-primary-400"
+
+
+		&.tool
+			--at-apply: "hover:bg-$tg-gray-500 border-$tg-gray-500 hover:border-$tg-gray-500"
+
+			@layer tangl-override
+				&:disabled
+					--at-apply: "border-$tg-secondary-400-light text-$tg-secondary-400-light"
+
+// ---------- grey theme
+.grey
+	.p-button
+		&.flat > div
+			--at-apply: "text-$tg-gray-400"
+
+		&.flat.active, &.tool.active, &.mini.active
+			color: var(--tg-primary-400)
+
+			> div
+				color: var(--tg-primary-400)
+
+			&:hover
+				@media (hover: hover)
+					color: var(--tg-primary-400)
+
+		&.tool
+			@layer tangl-override
+				&:disabled
+					--at-apply: "border-$tg-gray-450! text-$tg-gray-450!"
+
+		&.header
+			--at-apply: "bg-transparent text-$tg-gray-400"
+
+			&:hover
+				--at-apply: "text-white bg-transparent"
+
+		&.flat, &.tool, &.mini
+			&:enabled:hover
+				--at-apply: "bg-$tg-gray-450"
+
+
+	.p-button.tool
+		color: inherit
+		--at-apply: "border-$tg-gray-450"
+
+		@layer tangl-override
+			&:disabled
+				--at-apply: "border-$tg-gray-450! text-$tg-gray-450!"
+
+	.p-button.header
+		--at-apply: "bg-transparent text-$tg-gray-400"
+
+
+		&.tool
+			--at-apply: "hover:bg-$tg-gray-450 border-$tg-gray-450 hover:border-$tg-gray-450"
+
+			@layer tangl-override
+				&:disabled
+					--at-apply: "border-$tg-gray-450 text-$tg-gray-450"
+
+	.tg-input-field .p-button.flat
+		--at-apply: 'border-0'
+
+// ---------- light theme
+
+.p-button
+	&:enabled:hover
+		--at-apply: "bg-$tg-primary-400-light"
+
+	&.flat.active, &.tool.active, &.mini.active
+		color: var(--tg-primary-400)
+
+		&:hover
+			@media (hover: hover)
+				color: var(--tg-primary-400)
+
+
+	&.table
+		--at-apply: "text-$tg-gray-500"
+
+	&.flat, &.header, &.mini
+		color: inherit
+		--at-apply: "border-transparent p-2 bg-transparent hover:bg-$tg-primary-400-trans2"
+
+		@layer tangl-override
+			&:disabled
+				--at-apply: "border-transparent! bg-transparent! text-$tg-gray-300!"
+
+			&.active:disabled
+				--at-apply: "text-$tg-primary-400-light!"
+
+	&.tool
+		color: inherit
+		--at-apply: "border-$tg-gray-200 p-2 bg-transparent hover:bg-$tg-primary-400-trans2 hover:border-transparent"
+
+		@layer tangl-override
+			&:disabled
+				--at-apply: "border-$tg-gray-200! bg-transparent! text-$tg-gray-200!"
+
+
+	&.header
+		--at-apply: "min-h-16 min-w-13 justify-center"
+
+		*
+			--at-apply: "min-h-6 min-w-6"
+
+
+	&.mini
+		--at-apply: "min-h-8 min-w-8 w-8 h-8 p-1"
+
+		*
+			--at-apply: "h-6 w-6 min-h-6 min-w-6"
+
+	&.header.active
+		--at-apply: "bg-$tg-primary-400 hover:bg-$tg-primary-400"
+
+// ---------- split button
+
+.p-splitbutton-menubutton
+	.p-button-label
+		display: none

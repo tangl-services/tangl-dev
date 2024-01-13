@@ -1,0 +1,24 @@
+﻿.n-input
+  --at-apply: "bg-gray/10"
+  .n-input__state-border
+    border: none
+    --at-apply: "border-blue"
+
+  .n-input__border
+    border: none
+    --at-apply: "border-b-1 border-gray"
+  
+  //.n-input-wrapper
+
+.n-input:not(.n-input--disabled):hover, .n-input:not(.n-input--disabled).n-input--focus
+  .n-input__state-border
+    border: none
+    border-bottom: 2px solid
+    border-color: var(--tgv-azure)
+    box-shadow: none
+
+.n-input:not(.n-input--disabled):hover
+  --at-apply: "bg-gray/20"
+
+.n-input:not(.n-input--disabled).n-input--focus
+  --at-apply: "bg-gray/30"
