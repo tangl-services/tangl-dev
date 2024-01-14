@@ -4,7 +4,7 @@ New way of efficient work with BIM data for efficient buildings.
 
 Tangl is a platform for exporting, loading and transforming BIM data. In other words – to manage it and make it useful for everyday practice in different business scenarios.
 
-[](https://slabstatic.com/prod/uploads/4ojndffx/posts/images/mW5hQgtwB7ngwueuYVDl1F0n.png)
+![](https://slabstatic.com/prod/uploads/4ojndffx/posts/images/mW5hQgtwB7ngwueuYVDl1F0n.png)
 
 ## Tangl Page
 
