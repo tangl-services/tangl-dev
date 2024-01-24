@@ -1,10 +1,12 @@
+import axios from "axios";
+
 const TANGL_AUTH_SERVER = "https://auth.tangl.cloud"
 const TANGL_SERVER = "https://platform.tangl.cloud"
 export let tanglToken = undefined;
 
 export async function fetchToken() {
 	//post request
-	const response = await window.axios.post(TANGL_AUTH_SERVER + "/connect/token", {
+	const response = await axios.post(TANGL_AUTH_SERVER + "/connect/token", {
 			client_id: "e35e3f8b-8197-5b4d-8249-3a077cfedc50", //Demo API client
 			client_secret: "ff7eb513-db87-b66d-f743-3a077cfedc51", //Demo API client
 			grant_type: "password",
@@ -25,7 +27,7 @@ export async function fetchToken() {
 }
 
 export async function fetchCompanies() {
-	const response = await window.axios.get(TANGL_AUTH_SERVER + "/api/app/company",
+	const response = await axios.get(TANGL_AUTH_SERVER + "/api/app/company",
 		{
 			headers: {
 				'Authorization': 'Bearer ' + tanglToken
@@ -40,7 +42,7 @@ export async function fetchCompanies() {
 }
 
 export async function fetchModels(companyId) {
-	const response = await window.axios.get(TANGL_SERVER + "/api/app/metaModelsList/" + companyId,
+	const response = await axios.get(TANGL_SERVER + "/api/app/metaModelsList/" + companyId,
 		{
 			headers: {
 				'Authorization': 'Bearer ' + tanglToken
