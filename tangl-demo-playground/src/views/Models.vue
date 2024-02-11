@@ -68,7 +68,7 @@ export default defineComponent({
 					onClick: (e: MouseEvent) => {
 						if (e.ctrlKey) {
 							modelStore.selectedModels.push({
-								id: row.versions[row.versions.length - 1].id,
+								id: row.id,
 								name: row.name, versions: row.versions
 							});
 
@@ -82,7 +82,7 @@ export default defineComponent({
 							modelStore.selectedModels = [];
 
 							modelStore.selectedModels.push({
-								id: row.versions[row.versions.length - 1].id,
+								id: row.id,
 								name: row.name, versions: row.versions
 							});
 

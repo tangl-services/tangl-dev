@@ -9,7 +9,7 @@ export class DemoBasicExtension extends ExtensionBase {
 	static getName = (): string => "demo-basic";
 
 	sharedToolbarRender(container: HTMLElement) {
-		let vnode = createVNode(SharedToolbar, {ext: this})
+		let vnode = createVNode(SharedToolbar, {extName: this.getName(), viewerName: this.viewerName})
 		//vnode.appContext = app._context;
 		render(vnode, container)
 	}
@@ -23,6 +23,20 @@ export class DemoBasicExtension extends ExtensionBase {
 	deleted(): void {
 		const renderManager = this.getRenderManager();
 		renderManager?.removeEventListener(RenderEvents.Click, this.onHover)
+	}
+
+	commandChanged() {
+		this.isActive = false;
+	}
+
+	switchMode() {
+		const renderManager = this.getRenderManager()!;
+		this.isActive = !this.isActive;
+
+		if (this.isActive)
+			renderManager.extMan.setCurrentCommandExtension(this.getName())
+		else
+			renderManager.extMan.finishCurrentCommandExtension();
 	}
 
 	onHover() {

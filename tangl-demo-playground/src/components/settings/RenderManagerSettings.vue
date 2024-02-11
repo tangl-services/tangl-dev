@@ -25,12 +25,17 @@
 			v-model:value="renderManager.selectionOpacity" :min="0" :max="1" :step="0.1")
 
 	//block
-	h3.grid-col-span-2.py-2.font-bold Lock/Unlock
+	h3.grid-col-span-2.py-2.font-bold Selection/Navigation
 
 	SettingsLine(name="blockControls")
 		NCheckbox(v-model:checked="renderManager.blockControls")
 	SettingsLine(name="lockSelection")
 		NCheckbox(v-model:checked="renderManager.lockSelection")
+
+	SettingsLine(name="isMultiselectTouch")
+		NCheckbox(v-model:checked="renderManager.multiselectTouch")
+	SettingsLine(name="isMultiselectClick")
+		NCheckbox(v-model:checked="renderManager.multiselectClick")
 
 </template>
 

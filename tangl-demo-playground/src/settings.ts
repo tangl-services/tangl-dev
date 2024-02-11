@@ -11,4 +11,7 @@ export class RenderManagerSettings {
 
 	blockControls = false;
 	lockSelection = false;
+
+	multiselectTouch = false;
+	multiselectClick = false;
 }

@@ -1,14 +1,14 @@
 <template lang="pug">
 Splitpanes(:push-other-panes="false" @resized="update")
 	Pane.min-w-50(  v-if="state.showMetaTree" :size="state.metaTreeSize" :min-size="10")
-		MetaPane(:metaManager="metaManager" :sceneManager="sceneManager")
+		MetaPane(:metaManager="metaManager" :sceneManager="sceneManager" @selected="onMetaSelected")
 
 	Pane.relative
 		#viewer.w-full.h-full
 		#viewer-cube.absolute.bottom-0.right-0.h-60.w-60
 
 	Pane.min-w-50(v-if="state.showPropsTree" :size="state.propsTreeSize" :min-size="10")
-		PropsPane(:metaManager="metaManager" :sceneManager="sceneManager")
+		PropsPane(ref="propsPane" :metaManager="metaManager" :sceneManager="sceneManager")
 
 	Pane.min-w-50(v-if="state.showSettings" :size="state.settingsSize" :min-size="10")
 		SettingsPane
@@ -179,7 +179,12 @@ export default defineComponent({
 				if (this.state.showPropsTree) idx++;
 				this.state.settingsSize = e[idx].size;
 			}
-		}
+		},
+
+		onMetaSelected(els: number[]) {
+			if (this.$refs.propsPane)
+				(this.$refs.propsPane as any).fetchPropsByNumbers(els[0]);
+			},
 	},
 
 })

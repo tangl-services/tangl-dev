@@ -75,6 +75,9 @@ export const useSettingsStore = defineStore("settings", {
 
 			rm.setSelectionLock(rms.lockSelection);
 
+			rm.isMultiselectTouch = rms.multiselectTouch;
+			rm.isMultiselectClick = rms.multiselectClick;
+
 			rm.requestUpdate();
 		},
 		sync() {
