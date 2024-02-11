@@ -3,3 +3,4 @@ package-lock.json
 .idea
 tangl-demo-advanced/dist/
 tangl-demo-basic/dist/
+dist

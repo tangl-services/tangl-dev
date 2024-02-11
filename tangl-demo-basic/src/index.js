@@ -1,8 +1,8 @@
 ﻿import {GeneralModeExtension, OrbitControllerExtension, SceneManager, Ui, viewerStore} from "tangl-viewer"
 import {fetchModels, fetchCompanies, fetchToken, tanglToken} from "./functions.js";
 
-//import viewer styles
-import "../node_modules/tangl-viewer/dist/style.css"
+//import styles
+import "../node_modules/tangl-viewer/dist/style.css";
 
 //enable viewer locales
 Ui.setI18next()
