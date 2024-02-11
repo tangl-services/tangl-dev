@@ -1,20 +1,25 @@
 import {defineStore} from "pinia";
 import {useFileSystemAccess, useLocalStorage} from "@vueuse/core";
 import {viewerStore} from "tangl-viewer";
-import {RenderManagerSettings} from "../settings";
+import {PickerSettings, RenderManagerSettings} from "../settings";
 import {RenderManager} from "../../../../src/Tangl/tangl-viewer/src";
 
 export const useSettingsStore = defineStore("settings", {
 	state() {
 		const renderManager = useLocalStorage("tg-playground-renderManager",
 			new RenderManagerSettings())
-		return {renderManager}
+
+		const picker = useLocalStorage("tg-playground-picker",
+			new PickerSettings())
+
+		return {renderManager, picker}
 	},
 	actions: {
 		export() {
 			const label = "TanglViewerSettings";
 			const exportData = {
-				renderManager: this.renderManager
+				renderManager: this.renderManager,
+				picker: this.picker
 			}
 
 			const dataStr = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, "\t"));
@@ -45,10 +50,14 @@ export const useSettingsStore = defineStore("settings", {
 			if (data.renderManager)
 				this.renderManager = data.renderManager;
 
+			if (data.picker)
+				this.picker = data.picker;
+
 			this.apply();
 		},
 		reset() {
 			this.renderManager = new RenderManagerSettings()
+			this.picker = new PickerSettings()
 
 			this.apply()
 		},

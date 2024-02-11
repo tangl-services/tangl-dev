@@ -15,3 +15,8 @@ export class RenderManagerSettings {
 	multiselectTouch = false;
 	multiselectClick = false;
 }
+
+export class PickerSettings {
+	stopAtClick = false;
+	snapToPoints = false;
+}

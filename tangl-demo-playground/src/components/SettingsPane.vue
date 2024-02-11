@@ -6,9 +6,11 @@
 	p-button.p-button-text(@click="settings.export()") Export
 	p-button(@click="settings.reset()") Reset
 
-Accordion(multiple :activeIndex="state.activeIndex")
+Accordion(multiple :activeIndex="state.activeIndex") 
 	AccordionTab(header="RenderManager" )
 		RenderManagerSettings
+	AccordionTab(header="Picker")
+		PickerSettings
 	//AccordionTab(header="OrbitControllerExtension" )
 	//AccordionTab(header="FlyControllerExtension" )
 </template>
