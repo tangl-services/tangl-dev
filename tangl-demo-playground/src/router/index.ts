@@ -11,7 +11,7 @@ const routes = [
 	{
 		path: '/',
 		component: Models,
-		name: 'Models',
+		name: 'models',
 	},
 	{
 		path: '/viewer',

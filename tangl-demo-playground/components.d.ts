@@ -11,6 +11,8 @@ declare module 'vue' {
     Models: typeof import('./src/views/Models.vue')['default']
     OidcCallback: typeof import('./src/views/oidc/OidcCallback.vue')['default']
     OidcCallbackSilent: typeof import('./src/views/oidc/OidcCallbackSilent.vue')['default']
+    OrbitSettings: typeof import('./src/components/settings/OrbitSettings.vue')['default']
+    PickerSettings: typeof import('./src/components/settings/PickerSettings.vue')['default']
     PropsPane: typeof import('./src/components/PropsPane.vue')['default']
     RenderManagerSettings: typeof import('./src/components/settings/RenderManagerSettings.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

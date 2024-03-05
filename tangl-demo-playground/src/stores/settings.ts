@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {useFileSystemAccess, useLocalStorage} from "@vueuse/core";
-import {viewerStore} from "tangl-viewer";
-import {PickerSettings, RenderManagerSettings} from "../settings";
+import {OrbitControllerExtension, viewerStore} from "tangl-viewer";
+import {OrbitSettings, PickerSettings, RenderManagerSettings} from "../settings";
 import {RenderManager} from "../../../../src/Tangl/tangl-viewer/src";
 
 export const useSettingsStore = defineStore("settings", {
@@ -12,14 +12,18 @@ export const useSettingsStore = defineStore("settings", {
 		const picker = useLocalStorage("tg-playground-picker",
 			new PickerSettings())
 
-		return {renderManager, picker}
+		const orbit = useLocalStorage("tg-playground-orbit",
+			new OrbitSettings())
+
+		return {renderManager, picker, orbit}
 	},
 	actions: {
 		export() {
 			const label = "TanglViewerSettings";
 			const exportData = {
 				renderManager: this.renderManager,
-				picker: this.picker
+				picker: this.picker,
+				orbit: this.orbit
 			}
 
 			const dataStr = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, "\t"));
@@ -53,11 +57,15 @@ export const useSettingsStore = defineStore("settings", {
 			if (data.picker)
 				this.picker = data.picker;
 
+			if (data.orbit)
+				this.orbit = data.orbit;
+
 			this.apply();
 		},
 		reset() {
 			this.renderManager = new RenderManagerSettings()
 			this.picker = new PickerSettings()
+			this.orbit = new OrbitSettings()
 
 			this.apply()
 		},
@@ -87,10 +95,17 @@ export const useSettingsStore = defineStore("settings", {
 			rm.isMultiselectTouch = rms.multiselectTouch;
 			rm.isMultiselectClick = rms.multiselectClick;
 
+			let ext = rm.extMan.getExtensionByName("orbit")! as any;
+			if (ext) {
+				const orbitExt = ext as OrbitControllerExtension;
+				orbitExt.options = Object.assign(orbitExt.options, this.orbit)
+			}
+
 			rm.requestUpdate();
 		},
 		sync() {
 			this.renderManager = Object.assign(new RenderManagerSettings(), this.renderManager);
+			this.orbit = Object.assign(new OrbitSettings(), this.orbit);
 		},
 
 	}

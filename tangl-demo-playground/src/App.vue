@@ -1,19 +1,20 @@
 <template lang="pug">
-.p-input-filled.absolute.w-full.h-full.flex.flex-col
-	header.flex.gap-2.night.min-h-16
-		.flex.items-center
-			p-button.header(type="info" @click="redirectReload")
-				.i-mdi-home
+n-config-provider.tgv-metatree(:theme-overrides="tanglTheme")
+	.p-input-filled.absolute.w-full.h-full.flex.flex-col
+		header.flex.gap-2.night.min-h-16
+			.flex.items-center
+				p-button.header(type="info" @click="redirectReload" :class="{active:$route.name=='models'}")
+					.i-mdi-home
 
-			p-button.header( type="info" @click="go('viewer')")
-				.i-mdi-cube-outline
+				p-button.header( type="info" @click="go('viewer')" :class="{active:$route.name=='viewer'}")
+					.i-mdi-cube-outline
 
-		#header-teleport.flex-grow.flex.items-center.border-l-1.border-gray-500
+			#header-teleport.flex-grow.flex.items-center.border-l-1.border-gray-500
 
-		User(v-if="isAuth")
+			User(v-if="isAuth")
 
-	.relative.flex-grow.overflow-hidden
-		RouterView
+		.relative.flex-grow.overflow-hidden
+			RouterView
 </template>
 
 <script lang="ts">
@@ -23,11 +24,12 @@ import {isAuth, metaManager, renderManager} from "./managers";
 import {useModelStore, SelectedModel} from "./stores/model"
 import {mapStores} from "pinia";
 import Button from "primevue/button";
+import {tanglTheme} from "./naiveui";
 
 export default defineComponent({
 	components: {User, "p-button": Button},
 	setup() {
-		return {isAuth}
+		return {isAuth, tanglTheme}
 	},
 	computed: {
 		...mapStores(useModelStore)

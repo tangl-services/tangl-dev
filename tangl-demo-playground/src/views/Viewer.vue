@@ -6,6 +6,8 @@ Splitpanes(:push-other-panes="false" @resized="update")
 	Pane.relative
 		#viewer.w-full.h-full
 		#viewer-cube.absolute.bottom-0.right-0.h-60.w-60
+		//#tgv-monitor.absolute.bottom-0.left-0.h-160.w-90.flex.flex-wrap
+		//#tgv-bench.absolute.min-w-100
 
 	Pane.min-w-50(v-if="state.showPropsTree" :size="state.propsTreeSize" :min-size="10")
 		PropsPane(ref="propsPane" :metaManager="metaManager" :sceneManager="sceneManager")
@@ -62,6 +64,10 @@ import Button from "primevue/button";
 import {ModelsProgressEvent} from "tangl-viewer";
 
 import {ViewpointExtension} from "../extensions/viewpoint";
+import {MakingBasic1Extension} from "../extensions/making-basic-1";
+import {MakingBasic2Extension} from "../extensions/making-basic-2";
+import {MakingGeom1Extension} from "../extensions/making-geom-1";
+import {HowtoBasicExtension2} from "../extensions/howto-basic-2";
 
 class ViewState {
 	showMetaTree = true
@@ -111,7 +117,7 @@ export default defineComponent({
 			metaManager.setToken(token);
 		}
 
-		renderManager?.init("viewer");
+		renderManager?.init("viewer", "viewer-cube", true);
 
 		//set background color (if sky is not enabled)
 		renderManager.setBackgroundColor(0xffffff);
@@ -139,12 +145,19 @@ export default defineComponent({
 		renderManager.extMan.addExtension(VisibilityExtension)
 		renderManager.extMan.addExtension(MeasureExtension)
 		renderManager.extMan.addExtension(CoordinatesExtension)
-		//renderManager.extMan.addExtension(ViewpointExtension)
 
 		renderManager.extMan.selectControllerExtension("orbit")
 		renderManager.extMan.selectModeExtension("general")
+
 		// Demo extension
-		renderManager.extMan.addExtension(DemoBasicExtension)
+		// renderManager.extMan.addExtension(DemoBasicExtension)
+
+		// How to lessons extensions
+		// renderManager.extMan.addExtension(HowtoBasicExtension1)
+		// renderManager.extMan.addExtension(HowtoBasicExtension2, {hideToolbar: false})
+
+//		renderManager.extMan.addExtension(MakingGeom1Extension)
+
 
 		this.settingsStore.sync();
 		this.settingsStore.apply();
@@ -184,7 +197,7 @@ export default defineComponent({
 		onMetaSelected(els: number[]) {
 			if (this.$refs.propsPane)
 				(this.$refs.propsPane as any).fetchPropsByNumbers(els[0]);
-			},
+		},
 	},
 
 })
