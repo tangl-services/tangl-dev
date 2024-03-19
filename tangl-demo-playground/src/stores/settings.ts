@@ -2,7 +2,7 @@ import {defineStore} from "pinia";
 import {useFileSystemAccess, useLocalStorage} from "@vueuse/core";
 import {OrbitControllerExtension, viewerStore} from "tangl-viewer";
 import {OrbitSettings, PickerSettings, RenderManagerSettings} from "../settings";
-import {RenderManager} from "../../../../src/Tangl/tangl-viewer/src";
+import {RenderManager} from "tangl-viewer";
 
 export const useSettingsStore = defineStore("settings", {
 	state() {
@@ -71,6 +71,8 @@ export const useSettingsStore = defineStore("settings", {
 		},
 		apply() {
 			const rm = viewerStore.getRenderManager() as RenderManager;
+			if (!rm) return;
+
 			const rms = this.renderManager as RenderManagerSettings;
 
 			if (!rm) return;
@@ -85,21 +87,18 @@ export const useSettingsStore = defineStore("settings", {
 			rm.selectionColor = rms.selectionColor;
 			rm.selectionOpacity = rms.selectionOpacity;
 
-			if (rms.blockControls)
-				rm.blockControls();
-			else
-				rm.unblockControls();
-
 			rm.setSelectionLock(rms.lockSelection);
 
 			rm.isMultiselectTouch = rms.multiselectTouch;
 			rm.isMultiselectClick = rms.multiselectClick;
 
-			let ext = rm.extMan.getExtensionByName("orbit")! as any;
+
+			const ext = rm.extMan.getExtensionByName("orbit");
 			if (ext) {
-				const orbitExt = ext as OrbitControllerExtension;
+				const orbitExt = (ext as any) as OrbitControllerExtension;
 				orbitExt.options = Object.assign(orbitExt.options, this.orbit)
 			}
+
 
 			rm.requestUpdate();
 		},

@@ -20,7 +20,7 @@ n-config-provider.tgv-metatree(:theme-overrides="tanglTheme")
 <script lang="ts">
 import {defineComponent} from "vue";
 import User from "./components/User.vue";
-import {isAuth, metaManager, renderManager} from "./managers";
+import {isAuth, metaManager, renderManager, sceneManager} from "./managers";
 import {useModelStore, SelectedModel} from "./stores/model"
 import {mapStores} from "pinia";
 import Button from "primevue/button";
@@ -35,8 +35,7 @@ export default defineComponent({
 		...mapStores(useModelStore)
 	},
 	unmounted() {
-		renderManager.destroy()
-		metaManager?.destroy()
+		sceneManager?.destroy();
 	},
 	methods: {
 		redirectReload() {

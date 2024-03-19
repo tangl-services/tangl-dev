@@ -11,7 +11,6 @@ export class RenderManagerSettings {
 	selectionColor = "#00bbff";
 	selectionOpacity = 0.6;
 
-	blockControls = false;
 	lockSelection = false;
 
 	multiselectTouch = false;
@@ -39,6 +38,9 @@ export class OrbitSettings {
 	zoomSpeed = 0.3;
 	zoomDollySpeed = 0.5;
 
+	blockControls = false;
+
+
 	leftMouseButton: MOUSE | undefined = undefined;
 	rightMouseButton: MOUSE | undefined = MOUSE.ROTATE;
 	middleMouseButton: MOUSE | undefined = MOUSE.PAN;
@@ -46,10 +48,6 @@ export class OrbitSettings {
 
 	oneTap: TOUCH = TOUCH.ROTATE;
 	twoTaps: TOUCH = TOUCH.DOLLY_PAN
-
-	enableZoom = true;
-	enableRotate = true;
-	enablePan = true;
 
 	autoRotate = false;
 	autoRotateSpeed = 2.0;

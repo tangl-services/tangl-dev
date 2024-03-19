@@ -1,12 +1,7 @@
 <template lang="pug">
 .grid.grid-cols-2.gap-2
 	h3.grid-col-span-2.py-2.font-bold Common options
-	SettingsLine(name="enableZoom")
-		NCheckbox(v-model:checked="orbit.enableZoom")
-	SettingsLine(name="enableRotate")
-		NCheckbox(v-model:checked="orbit.enableRotate")
-	SettingsLine(name="enablePan")
-		NCheckbox(v-model:checked="orbit.enablePan")
+
 	SettingsLine(name="autoRotate")
 		NCheckbox(v-model:checked="orbit.autoRotate")
 	SettingsLine(name="autoRotateSpeed")

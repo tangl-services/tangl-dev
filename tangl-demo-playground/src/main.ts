@@ -17,17 +17,14 @@ import {Ui} from "tangl-viewer";
 //styles
 import './assets/sass/style.sass'
 
-import {createApp} from 'vue'
 import router from './router'
 import {PiniaOidcClientSettings} from "pinia-oidc/types/oidc";
 
-import App from './App.vue'
 
-const app = createApp(App);
 import {createPinia, setActivePinia} from 'pinia'
 import {piniaOidcCreateRouterMiddleware} from "pinia-oidc";
 import {createOidcStore, useOidcStore} from "./stores/oidc";
-import {isAuth} from "./managers";
+import {app, isAuth} from "./managers";
 
 //need for i18next resources parsing
 Object.keys(messages).forEach(function (key) {

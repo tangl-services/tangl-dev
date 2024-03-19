@@ -27,8 +27,6 @@
 	//block
 	h3.grid-col-span-2.py-2.font-bold Selection/Navigation
 
-	SettingsLine(name="blockControls")
-		NCheckbox(v-model:checked="renderManager.blockControls")
 	SettingsLine(name="lockSelection")
 		NCheckbox(v-model:checked="renderManager.lockSelection")
 

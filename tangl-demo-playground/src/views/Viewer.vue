@@ -41,7 +41,6 @@ teleport(to="#header-teleport")
 import {defineComponent} from "vue";
 
 import {
-	AreaExtension,
 	CoordinatesExtension,
 	CropExtension, FlyControllerExtension,
 	GeneralModeExtension, MeasureExtension, OrbitControllerExtension, OrbitExtensionOptions, SceneEvents,
@@ -63,9 +62,6 @@ import {useModelStore} from "../stores/model";
 import Button from "primevue/button";
 import {ModelsProgressEvent} from "tangl-viewer";
 
-import {ViewpointExtension} from "../extensions/viewpoint";
-import {MakingBasic1Extension} from "../extensions/making-basic-1";
-import {MakingBasic2Extension} from "../extensions/making-basic-2";
 import {MakingGeom1Extension} from "../extensions/making-geom-1";
 import {HowtoBasicExtension2} from "../extensions/howto-basic-2";
 
@@ -119,26 +115,21 @@ export default defineComponent({
 
 		renderManager?.init("viewer", "viewer-cube", true);
 
-		//set background color (if sky is not enabled)
-		renderManager.setBackgroundColor(0xffffff);
-
 		//set specific underlay params
 		renderManager.inactiveDarkness = 1.0;
 		renderManager.inactiveContrast = 5.0;
 		renderManager.inactiveFrontOpacity = 0.59;
 
 
-		//built-in extensions
-		renderManager.extMan.addExtension(OrbitControllerExtension,
-				{
-					leftMouseButton: MOUSE.ROTATE,
-					rightMouseButton: MOUSE.PAN,
-				} as OrbitExtensionOptions)
 		renderManager.extMan.addExtension(FlyControllerExtension,
 				{
 					leftMouseButton: MOUSE.PAN,
 					rightMouseButton: MOUSE.PAN,
 				} as FlyExtensionOptions)
+
+		renderManager.extMan.addExtension(OrbitControllerExtension)
+		renderManager.extMan.selectControllerExtension("orbit")
+
 		renderManager.extMan.addExtension(GeneralModeExtension)
 		renderManager.extMan.addExtension(DemoModeExtension)
 		renderManager.extMan.addExtension(CropExtension)
@@ -146,7 +137,6 @@ export default defineComponent({
 		renderManager.extMan.addExtension(MeasureExtension)
 		renderManager.extMan.addExtension(CoordinatesExtension)
 
-		renderManager.extMan.selectControllerExtension("orbit")
 		renderManager.extMan.selectModeExtension("general")
 
 		// Demo extension
@@ -155,14 +145,11 @@ export default defineComponent({
 		// How to lessons extensions
 		// renderManager.extMan.addExtension(HowtoBasicExtension1)
 		// renderManager.extMan.addExtension(HowtoBasicExtension2, {hideToolbar: false})
-
-//		renderManager.extMan.addExtension(MakingGeom1Extension)
-
+		// renderManager.extMan.addExtension(MakingGeom1Extension)
 
 		this.settingsStore.sync();
 		this.settingsStore.apply();
 
-		sceneManager.dispatchEvent(new ModelsProgressEvent(80))
 		sceneManager
 				.onAllLoaded(() => {
 					renderManager?.zoomCameraToSelection();
