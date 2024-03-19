@@ -1,6 +1,6 @@
 # Tangl Demo Playground Application
 
-![](https://slabstatic.com/prod/uploads/4ojndffx/posts/images/mW5hQgtwB7ngwueuYVDl1F0n.png)
+![](screen.png)
 
 This demo application illustrates the embedding of the Tangl viewer and its UI library. It is designed as a playground with different settings to make it easier for third-party developers to understand how a function or API is implemented.
 
