@@ -1,0 +1,61 @@
+@layer tangl-override, defaults, primevue, viewer
+
+@import '@unocss/reset/tailwind.css' layer(defaults)
+@import "primevue/resources/primevue.min.css"
+@import 'primevue/resources/themes/md-light-deeppurple/theme.css'
+@import "primeicons/primeicons.css"
+
+@import 'splitpanes/dist/splitpanes.css'
+
+@import "./../../../node_modules/tangl-viewer/dist/style.css" layer(viewer)
+
+@import splitpanes
+
+@import n-tree
+@import n-checkbox
+@import n-input
+@import p-button
+
+html
+	font-size: 12px
+
+h1
+	font-size: 1.5rem
+	line-height: 2rem
+	font-weight: 700
+
+h2
+	font-size: 16px
+	font-weight: 700
+
+h3
+	font-size: 14px
+	font-weight: 500
+
+h4
+	font-size: 1rem
+	line-height: 1.33rem
+	font-weight: 600
+
+h5
+	color: var(--tg-gray-400)
+	font-weight: 500
+
+.night, .tgv-night
+	--at-apply: "bg-$tg-secondary-400 text-white"
+
+.grey
+	--at-apply: "bg-$tg-gray-500"
+
+.tgv-bg-blur
+	--at-apply: "shadow-md backdrop-filter backdrop-blur-md bg-$tgv-white-trans"
+
+	&.tgv-bg-night, .night, .tgv-night
+		--at-apply: "bg-$tgv-night-trans"
+
+.tgv-night, .night
+	.tgv-divider--v
+		--at-apply: "border-$tg-gray-500"
+
+.v-binder-follower-container
+	z-index: 1000000 !important

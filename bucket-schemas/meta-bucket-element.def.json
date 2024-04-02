@@ -1,0 +1,209 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "Id": {
+            "type": "integer"
+        },
+        "Guid": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "ElementGuid": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "Name": {
+            "type": "string"
+        },
+        "Type": {
+            "type": "string"
+        },
+        "Category": {
+            "type": "string"
+        },
+        "Meta": {
+            "$ref": "#/definitions/Meta"
+        }
+    },
+    "required": [
+        "Category",
+        "ElementGuid",
+        "Guid",
+        "Id",
+        "Meta",
+        "Name",
+        "Type"
+    ],
+    "title": "ElementRoot",
+    "definitions": {
+        "Meta": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Element": {
+                    "$ref": "#/definitions/Element"
+                }
+            },
+            "required": [
+                "Element"
+            ],
+            "title": "Meta"
+        },
+        "Element": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "File": {
+                    "type": "string"
+                },
+                "Pars": {
+                    "$ref": "#/definitions/Pars"
+                },
+                "Materials": {
+                    "$ref": "#/definitions/Materials"
+                },
+                "Layers": {
+                    "$ref": "#/definitions/Layers"
+                },
+                "Level": {
+                    "$ref": "#/definitions/Level"
+                },
+                "Boundings": {
+                    "$ref": "#/definitions/Boundings"
+                },
+                "Link": {
+                    "$ref": "#/definitions/Link"
+                }
+            },
+            "required": [
+                "File",
+                "Link",
+                "Pars"
+            ],
+            "title": "Element"
+        },
+        "Boundings": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Bottom": {
+                    "type": "integer"
+                },
+                "Top": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "Bottom",
+                "Top"
+            ],
+            "title": "Boundings"
+        },
+        "Layers": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "([0-9]+)$": {}
+            },
+            "title": "Layers"
+        },
+        "Layer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Function": {
+                    "type": "string"
+                },
+                "Material": {
+                    "type": "string"
+                },
+                "Width": {
+                    "type": "integer"
+                },
+                "Volume": {
+                    "type": "number"
+                },
+                "Area": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Area",
+                "Function",
+                "Volume",
+                "Width"
+            ],
+            "title": "Layer"
+        },
+        "Level": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Elevation": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "Elevation",
+                "Name"
+            ],
+            "title": "Level"
+        },
+        "Link": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "IsLinkElement": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "IsLinkElement"
+            ],
+            "title": "Link"
+        },
+        "Materials": {
+            "type": "object",
+            "additionalProperties": false,
+            "patternProperties": {
+                "([0-9]+)$": {}
+            },
+            "title": "Materials"
+        },
+        "Material": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "Material": {
+                    "type": "string"
+                },
+                "Volume": {
+                    "type": "number"
+                },
+                "Area": {
+                    "type": "number"
+                },
+                "Layers": {
+                    "$ref": "#/definitions/Layers"
+                }
+            },
+            "required": [
+                "Area",
+                "Layers",
+                "Material",
+                "Volume"
+            ],
+            "title": "Material"
+        },
+        "Pars": {
+            "type": "object",
+            "additionalProperties": true,
+            "title": "Pars"
+        }
+    }
+}

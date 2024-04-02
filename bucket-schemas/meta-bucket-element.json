@@ -1,0 +1,237 @@
+{
+    "Id": 3119805,
+    "Guid": "7ea05d6c-52b8-40de-b788-a7b578b61314",
+    "ElementGuid": "56704077-7ffe-4bc5-a705-10932ffbc6c8",
+    "Name": "40_PAN_Stemalit+INSmw_250mm",
+    "Type": "40_PAN_Stemalit+INSmw_250mm",
+    "Category": "Curtain Panels",
+    "Meta": {
+      "Element": {
+        "Name": "40_PAN_Stemalit+INSmw_250mm",
+        "Id": 3119805,
+        "Category": "Curtain Panels",
+        "Type": "40_PAN_Stemalit+INSmw_250mm",
+        "File": "Kamen_AR_S03_01",
+        "Pars": {
+          "Area": 2.75625,
+          "Base Constraint": {
+            "Name": 33,
+            "Id": 2873045,
+            "Category": "Levels",
+            "Type": "Name-Elevation_Left",
+            "File": "Kamen_AR_S03_01",
+            "Pars": {
+              "Building Story": 1,
+              "Computation Height": 0,
+              "Elevation": 106500,
+              "Name": 33,
+              "Structural": 0,
+              "Type": {
+                "Name": "Name-Elevation_Left",
+                "Id": 3683,
+                "Category": "Levels",
+                "Pars": {
+                  "Color": 0,
+                  "Elevation Base": 0,
+                  "Family Name": "Level",
+                  "Line Weight": 1,
+                  "Symbol": {
+                    "RefIdx": 34284
+                  },
+                  "Symbol at End 1 Default": 1,
+                  "Symbol at End 2 Default": 0,
+                  "Type Name": "Name-Elevation_Left"
+                },
+                "Link": {
+                  "IsLinkElement": false
+                }
+              }
+            },
+            "Link": {
+              "IsLinkElement": false
+            }
+          },
+          "Base Extension Distance": 0,
+          "Base Offset": 50,
+          "Categorize as": 1,
+          "Cross-Section": 1,
+          "Enable Analytical Model": 0,
+          "F_Comments": "Type III. Stemalit",
+          "F_Filter": "Facade",
+          "F_Orientation": "ЮВ",
+          "FAM_Area": 2.76,
+          "Height": 2625,
+          "Inf_ConstructionWorks": "Installation of warm and cold curtain walls",
+          "Length": 1050,
+          "Location Line": 2,
+          "Location Line Offset": 0,
+          "Phase Created": {
+            "Name": "New Construction",
+            "Id": 3,
+            "Category": "Phases",
+            "Pars": {
+              "Name": "New Construction",
+              "Sequence Number": 2
+            },
+            "Link": {
+              "IsLinkElement": false
+            }
+          },
+          "Related to Mass": 0,
+          "Structural": 0,
+          "Structural Usage": 0,
+          "Top Extension Distance": 0,
+          "Type": {
+            "Name": "40_PAN_Stemalit+INSmw_250mm",
+            "Id": 2629875,
+            "Category": "Walls",
+            "Pars": {
+              "Absorptance": 0.1,
+              "Assembly Code": "03.13.02.01",
+              "Assembly Description": "Стемалитовые панели RAL",
+              "Coarse Scale Fill Color": 0,
+              "Coarse Scale Fill Pattern": {
+                "Name": "<Solid fill>",
+                "Id": 19,
+                "Pars": {},
+                "Link": {
+                  "IsLinkElement": false
+                }
+              },
+              "Description": "Stemalit/Insulation",
+              "Family Name": "Basic Wall",
+              "Function": 1,
+              "Heat Transfer Coefficient (U)": 1.66666663,
+              "Inf_MatVolume": 1,
+              "Inf_SS_Duplicate": 0,
+              "Model": "Facade. Composite Panel. Insulation",
+              "Roughness": 1,
+              "Safety Criticality Grade A": 5,
+              "Safety Criticality Grade B": 5,
+              "Thermal Mass": 0.018063,
+              "Thermal Resistance (R)": 0.6,
+              "Type Name": "40_PAN_Stemalit+INSmw_250mm",
+              "Width": 250,
+              "Wrapping at Ends": 1,
+              "Wrapping at Inserts": 1
+            },
+            "Link": {
+              "IsLinkElement": false
+            }
+          },
+          "Unconnected Height": 2625,
+          "Volume": 0.6890625,
+          "Width": 1050
+        },
+        "Materials": {
+          "0": {
+            "Material": "80_GLA_Stemalit",
+            "Volume": 0.15159374475479126,
+            "Area": 2.7562499046325684,
+            "Class": "80_GLA",
+            "Name": "80_GLA_Stemalit",
+            "Transparency": 0,
+            "Color": 13752009,
+            "Cost": 0,
+            "Smoothness": 50,
+            "Shininess": 64,
+            "Glow": 0,
+            "Description": "Silicate glass",
+            "Design Option": "Main Model",
+            "Comments": "Silicate glass",
+            "Layers": {
+              "0": {
+                "Function": "Finish2",
+                "Volume": 0.15159374475479126,
+                "Area": 2.7562499046325684,
+                "Width": 55
+              }
+            }
+          },
+          "1": {
+            "Material": "90_AIR",
+            "Volume": 0.041343748569488525,
+            "Area": 2.7562499046325684,
+            "Class": "90_OTH",
+            "Name": "90_AIR",
+            "Transparency": 100,
+            "Color": 15066597,
+            "Cost": 0,
+            "Smoothness": 50,
+            "Material Type": 4,
+            "Shininess": 64,
+            "Glow": 0,
+            "Description": "Air",
+            "Design Option": "Main Model",
+            "Comments": "Air",
+            "Layers": {
+              "1": {
+                "Function": "Insulation",
+                "Volume": 0.041343748569488525,
+                "Area": 2.7562499046325684,
+                "Width": 15
+              }
+            }
+          },
+          "2": {
+            "Material": "30_INSmw_MineralWool",
+            "Volume": 0.4961250126361847,
+            "Area": 2.7562499046325684,
+            "Class": "30_INS",
+            "Name": "30_INSmw_MineralWool",
+            "Transparency": 0,
+            "Color": 10535910,
+            "Cost": 0,
+            "Smoothness": 50,
+            "Shininess": 64,
+            "Glow": 0,
+            "Description": "Mineral Wool Insulation",
+            "Design Option": "Main Model",
+            "Comments": "Building volume",
+            "Layers": {
+              "2": {
+                "Function": "Insulation",
+                "Volume": 0.4961250126361847,
+                "Area": 2.7562499046325684,
+                "Width": 180
+              }
+            }
+          }
+        },
+        "Layers": {
+          "0": {
+            "Function": "Finish2",
+            "Material": "80_GLA_Stemalit",
+            "Width": 55,
+            "Volume": 0.15159374475479126,
+            "Area": 2.7562499046325684
+          },
+          "1": {
+            "Function": "Insulation",
+            "Material": "90_AIR",
+            "Width": 15,
+            "Volume": 0.041343748569488525,
+            "Area": 2.7562499046325684
+          },
+          "2": {
+            "Function": "Insulation",
+            "Material": "30_INSmw_MineralWool",
+            "Width": 180,
+            "Volume": 0.4961250126361847,
+            "Area": 2.7562499046325684
+          }
+        },
+        "Level": {
+          "Name": 33,
+          "Elevation": 106500
+        },
+        "Boundings": {
+          "Bottom": 106550,
+          "Top": 109175
+        },
+        "Link": {
+          "IsLinkElement": false
+        }
+      }
+    }
+  }

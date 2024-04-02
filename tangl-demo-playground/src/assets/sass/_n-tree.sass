@@ -1,0 +1,49 @@
+.n-tree
+	.n-tree-node-checkbox
+		height: auto
+
+	.n-tree-node-switcher
+		background: transparent
+		--at-apply: "h-full self-center"
+
+	.n-tree-node-wrapper
+		padding: 0
+
+		.n-tree-node:not(.n-tree-node--disabled):hover
+			background: none
+			outline-color: var(--tg-primary-400)
+			outline-offset: -2px
+			outline-style: solid
+
+			&.n-tree-node--selected:hover
+				background: var(--n-node-color-active)
+
+		.n-tree-node
+			--n-node-color-hover: var(--tg-gray-100)
+			--n-node-color-active: var(--tg-gray-200)
+			--n-node-color-pressed: var(--tg-gray-200)
+
+			border-radius: 0
+			--at-apply: "min-h-11"
+
+			.n-tree-node-content, .n-tree-node-content:active
+				background: none
+				color: inherit
+
+				&:hover
+					background: none
+
+			&.n-tree-node--highlight
+				.n-tree-node-content
+					.n-tree-node-content__text
+						border: none
+
+.night, .tgv-night
+	.n-tree
+		.n-tree-node
+			--n-node-color-hover: var(--tg-secondary-200)
+			--n-node-color-active: var(--tg-secondary-300)
+			--n-node-color-pressed: var(--tg-primary-400)
+
+		.n-tree-node:not(.n-tree-node--disabled).n-tree-node--selected:hover
+			background: var(--tg-secondary-300)

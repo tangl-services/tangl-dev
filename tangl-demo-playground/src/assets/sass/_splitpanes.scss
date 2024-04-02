@@ -1,0 +1,98 @@
+.splitpanes {
+  background-color: white;
+
+  &__pane {
+	box-shadow: none;
+	overflow-y: auto;
+	position: relative;
+
+	&.show-animate-panel {
+	  animation: showPanelFromLeft .3s ease;
+	  animation-fill-mode: forwards;
+	}
+
+
+	&.hide-animate-panel {
+	  animation: hidePanelFromLeft .3s ease;
+	  animation-fill-mode: forwards;
+	}
+  }
+
+  &__splitter {
+	background-color: var(--tg-gray-200);
+	width: 1.2px;
+	min-width: 1px;
+	position: relative;
+
+	.grey & {
+	  background-color: var(--tg-gray-450)
+	}
+  }
+
+  &__splitter:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	transition: 0.4s;
+  }
+
+  &--vertical > &__splitter:before {
+	left: -5px;
+	right: -5px;
+  }
+
+  &--horizontal > &__splitter:before {
+	top: -5px;
+	bottom: -5px;
+  }
+
+  &__splitter:hover:before {
+	background-color: rgba(99, 99, 99, 0.2);
+	z-index: 1000;
+  }
+}
+
+.splitpanes--vertical .splitpanes__pane {
+  transition: none;
+}
+
+@keyframes showPanelFromLeft {
+  0% {
+	transform: translateX(100%);
+  }
+  100% {
+	transform: translateX(0%);
+  }
+}
+
+
+@keyframes showPanelFromBottom {
+  0% {
+	bottom: -100%
+  }
+  100% {
+	bottom: 0
+  }
+}
+
+@keyframes hidePanelFromLeft {
+  0% {
+	transform: translateX(0%);
+  }
+  100% {
+	transform: translateX(100%);
+  }
+}
+
+
+@keyframes hidePanelFromBottom {
+  0% {
+	bottom: 0
+  }
+  100% {
+	bottom: -100%
+  }
+}
