@@ -30,7 +30,7 @@ await fetchToken()
 sceneManager.setToken(tanglToken)
 
 const companies = await fetchCompanies()
-const companyId = companies[0].id
+const companyId = companies.filter(c => !c.isPersonal)[0].id
 
 const models = await fetchModels(companyId)
 const modelId = models[0].versions[0].id
