@@ -144,7 +144,7 @@ export default defineComponent({
 
 		// How to lessons extensions
 		// renderManager.extMan.addExtension(HowtoBasicExtension1)
-		// renderManager.extMan.addExtension(HowtoBasicExtension2, {hideToolbar: false})
+		renderManager.extMan.addExtension(HowtoBasicExtension2, {hideToolbar: false})
 		// renderManager.extMan.addExtension(MakingGeom1Extension)
 
 		this.settingsStore.sync();

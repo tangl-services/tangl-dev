@@ -57,7 +57,7 @@ export const useModelStore = defineStore("model", {
           .catch((err) => console.error(err));
       } else
         res = await axios
-          .get(env.VITE_TANGL_SERVER + "/api/app/metaModels/All?Start=0&Limit=100", {
+          .get(env.VITE_TANGL_SERVER + "/api/app/metaModelsList?Start=0&Limit=100", {
             responseType: "json",
             headers: {},
           })
